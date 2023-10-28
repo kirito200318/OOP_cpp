@@ -1,10 +1,9 @@
-#ifndef GAMEFIELD_H
-#define GAMEFIELD_H
+#pragma once
 #include "cell.h"
 #define ERROR_VALUE throw std::out_of_range(std::string("Invalid variable value"))
 class GameField {
 private:
-    Cell **cells;
+    Cell** cells;
     int rows;
     int cols;
     //{row,col}
@@ -15,14 +14,14 @@ public:
     GameField(int numRows = 3, int numCols = 3);
     GameField() = default;
     ~GameField();
-    //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
+    //конструктор присваивания
     GameField(const GameField& other);
-    //РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+    //оператор присваивания копирования
     GameField& operator=(const GameField& other);
 
-    //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРјРµС‰РµРЅРёСЏ
+    //конструктор перемещения
     GameField(GameField&& other) noexcept;
-    //РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ РїРµСЂРµРјРµС‰РµРЅРёСЏ
+    //оператор присваивания перемещения
     GameField& operator=(GameField&& other) noexcept;
 
     void setStartPosition(std::pair<int, int> coord_player);
@@ -38,5 +37,3 @@ public:
     bool check_size(int numRows, int numCols);
     bool isValidPosition(std::pair<int, int> coord);
 };
-
-#endif

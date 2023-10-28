@@ -1,27 +1,26 @@
-#ifndef HERO_CPP
-#define HERO_CPP
+#pragma once
 #include "hero.h"
 
 
-Hero::Hero(std::string name, int hp, int mana, int attack): name(name), coin_points(0){
+Hero::Hero(std::string name, int hp, int mana, int attack) : name(name), coin_points(0) {
 
 
-    if (checkHP(hp)){
+    if (checkHP(hp)) {
         this->hp = hp;
     }
-    else{
+    else {
         ERROR_VALUE;
     }
-    if (checkMana(mana)){
+    if (checkMana(mana)) {
         this->mana = mana;
     }
-    else{
+    else {
         ERROR_VALUE;
     }
-    if (checkAtk(mana)){
+    if (checkAtk(mana)) {
         this->attack = attack;
     }
-    else{
+    else {
         ERROR_VALUE;
     }
 }
@@ -42,20 +41,20 @@ bool Hero::checkAtk(int attack) {
 }
 
 
-void Hero::getInformation(){
+void Hero::getInformation() {
     std::cout << name << " - name" << '\n'
-              << hp << " - hp" <<'\n'
-              << mana << " - mana" << '\n'
-              << attack << " - attack" << '\n'
-              << exp << " - experience" << '\n'
-              << coin_points << " - coin_points" << '\n';
+        << hp << " - hp" << '\n'
+        << mana << " - mana" << '\n'
+        << attack << " - attack" << '\n'
+        << exp << " - experience" << '\n'
+        << coin_points << " - coin_points" << '\n';
 }
 
 //getters
-ui Hero::getEXP(){
+ui Hero::getEXP() {
     return exp;
 }
-ui Hero::getCP(){
+ui Hero::getCP() {
     return coin_points;
 }
 ui Hero::getHP() {
@@ -72,43 +71,46 @@ std::string Hero::getName() {
 }
 
 //setters
-void Hero::setHP(int hp){
-    if (checkHP(hp)){
+void Hero::setHP(int hp) {
+    if (checkHP(hp)) {
         this->hp = hp;
-    }else{
+    }
+    else {
         ERROR_VALUE;
     }
 }
-void Hero::setMana(int mana){
-    if (!checkMana(mana)){
+void Hero::setMana(int mana) {
+    if (!checkMana(mana)) {
         ERROR_VALUE;
-    }else{
+    }
+    else {
         this->mana = mana;
     }
 }
-void Hero::setAtk(int attack){
-    if(!checkAtk(attack)){
+void Hero::setAtk(int attack) {
+    if (!checkAtk(attack)) {
         ERROR_VALUE;
-    }else{
+    }
+    else {
         this->attack = attack;
     }
 }
-void Hero::setName(std::string name){
+void Hero::setName(std::string name) {
     this->name = name;
 }
-void Hero::setEXP(int exp){
-    if (!checkEXP(exp)){
+void Hero::setEXP(int exp) {
+    if (!checkEXP(exp)) {
         ERROR_VALUE;
-    }else{
+    }
+    else {
         this->exp = exp;
     }
 }
-void Hero::setCP(int coin_points){
-    if (!checkCP(coin_points)){
+void Hero::setCP(int coin_points) {
+    if (!checkCP(coin_points)) {
         ERROR_VALUE;
-    }else{
+    }
+    else {
         this->coin_points = coin_points;
     }
 }
-
-#endif

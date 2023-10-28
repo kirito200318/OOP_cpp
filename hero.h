@@ -1,12 +1,11 @@
-#ifndef HERO_H
-#define HERO_H
+#pragma once
 #include <iostream>
 #include <string>
 #define ERROR_VALUE throw std::out_of_range(std::string("Invalid variable value"))
 
 #define ui unsigned int
 
-class Hero{
+class Hero {
 
 public:
     Hero(std::string name, int hp, int mana, int attack);
@@ -46,5 +45,3 @@ private:
     ui attack;
     std::string name;
 };
-
-#endif

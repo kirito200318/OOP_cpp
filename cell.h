@@ -1,5 +1,4 @@
-#ifndef CELL_H
-#define CELL_H
+#pragma once
 #include <iostream>
 #include "GameEvent.h"
 class Cell {
@@ -9,7 +8,7 @@ private:
 
 public:
 
-    Cell(bool isPassable  = true, GameEvent* cell_event = nullptr);
+    Cell(bool isPassable = true, GameEvent* cell_event = nullptr);
     Cell(const Cell& other);
     Cell(Cell&& other)  noexcept;
     Cell& operator=(const Cell& other);
@@ -22,4 +21,3 @@ public:
 
     void setPassable(bool isPassable);
 };
-#endif

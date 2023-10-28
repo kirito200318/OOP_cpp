@@ -1,5 +1,4 @@
-#ifndef NEGATIVEEVENT_H
-#define NEGATIVEEVENT_H
+#pragma once
 #include "GameEvent.h"
 class NegativeEvent : public GameEvent {
 public:
@@ -7,4 +6,3 @@ public:
 	void ApplyEvent(Hero& hero, Controller& controller) override;
 };
 
-#endif

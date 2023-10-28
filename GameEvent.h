@@ -1,5 +1,4 @@
-#ifndef GAMEEVENT_H
-#define GAMEEVENT_H
+#pragma once
 
 #include "controller.h"
 
@@ -8,5 +7,3 @@ public:
     virtual GameEvent* Clone() = 0;
     virtual void ApplyEvent(Hero& Hero, Controller& controller) = 0;
 };
-
-#endif

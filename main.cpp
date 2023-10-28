@@ -5,7 +5,7 @@
 #include "FieldGenerate.h"
 #include "cell.h"
 int main() {
-    
+
     Hero player("dog", 100, 10, 10);
     //FieldGenerate gener;
     //GameField field = gener.EasyLevel();

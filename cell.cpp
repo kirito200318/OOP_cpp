@@ -1,26 +1,25 @@
-#ifndef CELL_CPP
-#define CELL_CPP
+#pragma once
 #include "cell.h"
-Cell::Cell(bool isPassable, GameEvent* cell_event): passable(isPassable), cell_event(cell_event) {}
-bool Cell::isPassable(){
+Cell::Cell(bool isPassable, GameEvent* cell_event) : passable(isPassable), cell_event(cell_event) {}
+bool Cell::isPassable() {
     return passable;
 }
 void Cell::setPassable(bool isPassable) {
     passable = isPassable;
 }
 
-Cell::Cell(const Cell& other) : passable(other.passable),  cell_event(nullptr) {
+Cell::Cell(const Cell& other) : passable(other.passable), cell_event(nullptr) {
     if (other.cell_event != nullptr) {
         cell_event = other.cell_event->Clone();
     }
 }
 
-// ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ
+// Êîíñòðóêòîð ïåðåìåùåíèÿ
 Cell::Cell(Cell&& other)  noexcept : passable(other.passable), cell_event(nullptr) {
     other.cell_event = nullptr;
 }
 
-// ÐžÐ¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ Ð¿Ñ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°Ð½Ð¸Ñ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ
+// Îïåðàòîð ïðèñâàèâàíèÿ êîïèðîâàíèÿ
 Cell& Cell::operator=(const Cell& other) {
     if (this == &other) {
         return *this;
@@ -44,7 +43,7 @@ Cell& Cell::operator=(const Cell& other) {
     return *this;
 }
 
-// ÐžÐ¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ Ð¿Ñ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°Ð½Ð¸Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ
+// Îïåðàòîð ïðèñâàèâàíèÿ ïåðåìåùåíèÿ
 Cell& Cell::operator=(Cell&& other)  noexcept {
     if (this == &other) {
         return *this;
@@ -52,7 +51,7 @@ Cell& Cell::operator=(Cell&& other)  noexcept {
 
     passable = other.passable;
 
-    // ÐŸÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ðµ ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»Ñ Ð½Ð° ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ðµ
+    // Ïåðåìåùåíèå óêàçàòåëÿ íà ñîáûòèå
     if (cell_event != nullptr) {
         delete cell_event;
     }
@@ -63,7 +62,7 @@ Cell& Cell::operator=(Cell&& other)  noexcept {
     return *this;
 }
 
-// Ð”ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€
+// Äåñòðóêòîð
 Cell::~Cell() {
     if (cell_event != nullptr) {
         delete cell_event;
@@ -80,4 +79,3 @@ GameEvent* Cell::getEvent() {
 void Cell::setEvent(GameEvent* game_event) {
     this->cell_event = game_event;
 }
-#endif
